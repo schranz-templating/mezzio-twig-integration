@@ -19,9 +19,10 @@ class ConfigProvider
         return [
             'aliases'   => [
                 TemplateRendererInterface::class => TwigRenderer::class,
+                TwigRenderer::class => 'schranz_templating.renderer.twig',
             ],
             'factories' => [
-                TwigRenderer::class  => TwigRendererFactory::class,
+                'schranz_templating.renderer.twig' => TwigRendererFactory::class,
             ],
         ];
     }

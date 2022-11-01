@@ -28,6 +28,28 @@ $aggregator = new ConfigAggregator([
 
 ## Configuration
 
-The Twig Integration has currently no configuration as twig
+The Twig Integration has currently no configuration as Twig
 is supported out of the box by Mezzio and can be configured
 via the [Mezzio Twig Renderer](https://docs.mezzio.dev/mezzio/v3/features/template/twig/).
+
+## Usage with other Mezzio renderer
+
+To use it side by side with other Mezzio renderer integrations you need configure the extension
+of the files:
+
+```php
+// src/App/src/ConfigProvider.php
+
+class ConfigProvider
+{
+    public function __invoke(): array
+    {
+        return [
+            // ...
+            'twig' => [
+                'extension' => 'html.twig',
+            ],
+        ];
+    }
+}
+```
